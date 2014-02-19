@@ -105,7 +105,7 @@ public class Main {
 			layers.add(l);
 		}
 		
-		PrintWriter f = new PrintWriter("out.gco", "UTF-8");
+		PrintWriter f = new PrintWriter(config.getString("out"), "UTF-8");
 		f.println(head);
 
 		double pos = config.getDouble("begin");
@@ -199,6 +199,14 @@ private static final void arguments(JSAP jsap){
 			.setAllowMultipleDeclarations(true);
 		layer.setHelp("");
 		
+		FlaggedOption out = new FlaggedOption("out")
+			.setStringParser(JSAP.DOUBLE_PARSER)
+			.setDefault("out.gco")
+			.setRequired(true)
+			.setShortFlag('o')
+			.setLongFlag("out");
+		out.setHelp("");
+		
 		try {
 			jsap.registerParameter(head);
 			jsap.registerParameter(tail);
@@ -207,6 +215,7 @@ private static final void arguments(JSAP jsap){
 			jsap.registerParameter(step);
 			jsap.registerParameter(layer);
 			jsap.registerParameter(lift);
+			jsap.registerParameter(out);
 		} catch (JSAPException e) {
 			System.err.println("JSAP: Failed to register parameters due to: " + e);
 		}
