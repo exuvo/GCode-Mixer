@@ -15,8 +15,8 @@ Editor used: eclipse
 ### Usage
 ```
 java Main
-          (-h|--head) <head> (-t|--tail) <tail> (-b|--begin) <begin>
-          (-e|--end) <end> (-s|--step) <step> (-l|--layer) <layer> [--lift <lift>]
+          (-h|--head) <head> (-t|--tail) <tail> (-b|--begin) <begin> 
+          (-e|--end) <end> (-s|--step) <step> (-l|--layer) <layer> [--lift <lift>] (-o|--out) <out>
 
   (-h|--head) <head>
         (default: head.txt)
@@ -34,6 +34,9 @@ java Main
 
   [--lift <lift>]
         (default: 0.1)
+
+  (-o|--out) <out>
+        (default: out.gco)
 ```
 
 Example: `java -jar GCodeMixer.jar --begin 1.5 --end 25.5 --step 0.3 -l "layer a.txt" -l "layer b.txt" -l "layer c.txt"`
