@@ -36,7 +36,7 @@ java Main
         (default: 0.1)
 ```
 
-Example: `java Main --begin 1.5 --end 25.5 --step 0.3 -l "layer a.txt" -l "layer b.txt" -l "layer c.txt"`
+Example: `java -jar GCodeMixer.jar --begin 1.5 --end 25.5 --step 0.3 -l "layer a.txt" -l "layer b.txt" -l "layer c.txt"`
 
 Results in *out.gco* that begins with the contents of *head.txt* and between 1.5-25.5mm uses layer a/b/c in a rotating fashion with layer height 0.3 and end with the contents of *end.txt*.
 
