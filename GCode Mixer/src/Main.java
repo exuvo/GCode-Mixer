@@ -200,7 +200,7 @@ private static final void arguments(JSAP jsap){
 		layer.setHelp("");
 		
 		FlaggedOption out = new FlaggedOption("out")
-			.setStringParser(JSAP.DOUBLE_PARSER)
+			.setStringParser(JSAP.STRING_PARSER)
 			.setDefault("out.gco")
 			.setRequired(true)
 			.setShortFlag('o')
