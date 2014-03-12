@@ -27,7 +27,7 @@ public class Main {
 	static List<LayerGroup> layers = new ArrayList<LayerGroup>();
 
 	public static void main(String[] args) throws IOException {
-		System.out.println(arrayToString(args));
+//		System.out.println(arrayToString(args));
 		JSAP jsap = new JSAP();
         arguments(jsap);
         
