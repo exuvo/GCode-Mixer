@@ -290,7 +290,7 @@ public class Main {
 		}
 
 		f.close();
-		System.out.println("Done");
+		System.out.println("Done, please visually inspect before printing!");
 	}
 	
 	static String arrayToString(Object[] in){
