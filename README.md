@@ -48,3 +48,4 @@ Example: `java -jar GCodeMixer.jar --step 0.3 --source orig.gcode:test --layer t
 
 Results in *out.gco* that begins with layer 0 to 5 of *orig.gcode*, layer 6 to 20 are copies of orig layers 6,7 in a rotating fashion, layer 21 is a copy of orig layer 21, layer 22 to 29 are copies of orig layer 22, layer 30 is a copy of orig layer 29.
 
+To mix different files use something along the lines of: --source inputA.gcode:a --source inputB:b --layer a;0-10,41-50 --layer b;11-13:11-30,31-40
