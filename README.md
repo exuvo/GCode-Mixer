@@ -15,31 +15,32 @@ Editor used: eclipse
 ### Usage
 ```
 java Main
-          (-h|--head) <head> (-t|--tail) <tail> (-b|--begin) <begin> 
-          (-e|--end) <end> (-s|--step) <step> (-l|--layer) <layer> [--lift <lift>] (-o|--out) <out>
+          (-s|--source) <source> (-t|--step) <step> [(-c|--layerchange) <layerchange>] (-l|--layer) <layer> [--lift <lift>] (-o|--out) <out> [-i|--info]
 
-  (-h|--head) <head>
-        (default: head.txt)
+  (-s|--source) <source>
+        <filename>:<id>
 
-  (-t|--tail) <tail>
-        (default: tail.txt)
+  (-t|--step) <step>
+        <double>
 
-  (-b|--begin) <begin>
-
-  (-e|--end) <end>
-
-  (-s|--step) <step>
+  [(-c|--layerchange) <layerchange>]
+        <slic3r layer change output> (default: ;Layer change)
 
   (-l|--layer) <layer>
+        [<id>;]<from_range>[:<to_range>[,<from_range>:<to_range>]]
 
   [--lift <lift>]
-        (default: 0.1)
+        <double>
 
   (-o|--out) <out>
-        (default: out.gco)
+        reads sources, prints their information and stops (default: out.gco)
+
+  [-i|--info]
+
+Example: --step 0.3 --source in.gcode:a --source in.gcode:b --layer a;0-5,6-7:6-20,21,29:30 --layer b;22-29
 ```
 
-Example: `java -jar GCodeMixer.jar --begin 1.5 --end 25.5 --step 0.3 -l "layer a.txt" -l "layer b.txt" -l "layer c.txt"`
+Example: `java -jar GCodeMixer.jar --step 0.3 --source orig.gcode:test --layer test;0-5,6-7:6-20,21,22:22-29,29:30`
 
-Results in *out.gco* that begins with the contents of *head.txt* and between 1.5-25.5mm uses layer a/b/c in a rotating fashion with layer height 0.3 and end with the contents of *end.txt*.
+Results in *out.gco* that begins with layer 0 to 5 of *orig.gcode*, layer 6 to 20 are copies of orig layers 6,7 in a rotating fashion, layer 21 is a copy of orig layer 21, layer 22 to 29 are copies of orig layer 22, layer 30 is a copy of orig layer 29.
 
