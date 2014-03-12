@@ -1,7 +1,7 @@
 GCode-Mixer
 ===========
 
-Program for mixing multiple gcode files into one. 
+Program for mixing multiple gcode files into one. (tested with slic3r output)
 
 ### Current Features
  * Allows mixing of multiple gcode files that use different settings.
