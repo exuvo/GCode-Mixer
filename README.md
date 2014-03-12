@@ -4,15 +4,19 @@ GCode-Mixer
 Program for mixing multiple gcode files into one. 
 
 ### Current Features
- * Header and end files with alternating layers between.
+ * Allows mixing of multiple gcode files that use different settings.
+ * Input files must have the same layer height.
+ * Input files must have a comment between each layer, easily done in slic3r.
+ * Can copy a single input layer to multiple output layers.
+ * Can copy multiple input layers to multiple output layers in an alternating fashion.
  * Automatic detection of z-lift usage and corrects output z-target heights.
-
-Editor used: eclipse
+ * Lots of input verification to help detect errors in configuration.
 
 ### Planned Features
- * Support for specifying individual height intervals for each layer.
+ * Support for specifying individual layer height for each input file.
 
 ### Usage
+To add the required comments to input files using slicer: Write ';Layer change' under 'Printer Settings'->'Custom G-code'->'Layer change G-code'.
 ```
 java Main
           (-s|--source) <source> (-t|--step) <step> [(-c|--layerchange) <layerchange>] (-l|--layer) <layer> [--lift <lift>] (-o|--out) <out> [-i|--info]
