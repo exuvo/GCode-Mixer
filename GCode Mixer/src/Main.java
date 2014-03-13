@@ -151,10 +151,10 @@ public class Main {
 		for(String layer : config.getStringArray("layer")){
 			LayerSource source;
 			
-			if(Pattern.matches("\\w+;((\\d+-\\d+:\\d+-\\d+|\\d+-\\d+|\\d+:\\d+|\\d+:\\d+-\\d+|\\d+),)*?(\\d+-\\d+:\\d+-\\d+|\\d+-\\d+|\\d+:\\d+|\\d+:\\d+-\\d+|\\d+)", layer)){
+			if(Pattern.matches("\\w+;((\\d+-\\d+:\\d+-\\d+|\\d+-\\d+|\\d+:\\d+-\\d+|\\d+:\\d+|\\d+),)*?(\\d+-\\d+:\\d+-\\d+|\\d+-\\d+|\\d+:\\d+-\\d+|\\d+:\\d+|\\d+)", layer)){
 				source = getSource(layer.substring(0, layer.indexOf(";")));
 				layer = layer.substring(layer.indexOf(";") + 1, layer.length());
-			}else if(Pattern.matches("((\\d+-\\d+:\\d+-\\d+|\\d+-\\d+|\\d+:\\d+|\\d+:\\d+-\\d+|\\d+),)*?(\\d+-\\d+:\\d+-\\d+|\\d+-\\d+|\\d+:\\d+|\\d+:\\d+-\\d+|\\d+)", layer)){
+			}else if(Pattern.matches("((\\d+-\\d+:\\d+-\\d+|\\d+-\\d+|\\d+:\\d+-\\d+|\\d+:\\d+|\\d+),)*?(\\d+-\\d+:\\d+-\\d+|\\d+-\\d+|\\d+:\\d+-\\d+|\\d+:\\d+|\\d+)", layer)){
 				if(sources.size() > 1){
 					throw new IllegalArgumentException("Ambigous layer source name, must name all sources when using multiple sources");
 				}
