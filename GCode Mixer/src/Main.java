@@ -115,13 +115,14 @@ public class Main {
 				}
 			}else{
 				System.out.print(", Found no layerchange comment, assuming whole file is one layer.");
-				if(gcode.contains("Z")){
+				Layer l = new Layer(gcode);
+				source.layers.add(l);
+				if(l.zlift){
 					System.out.println(" Z-lift detected");
 					source.zlift = true;
 				}else{
 					System.out.println();
 				}
-				source.layers.add(new Layer(gcode));
 			}
 			
 			sources.add(source);
@@ -411,6 +412,7 @@ public class Main {
 				s.close();
 				
 				if(zmovement.size() == 1){//Not a true zlift, only initial layer height change
+					gcode = gcode.replace(zmovement.iterator().next(), zlow);
 					zlift = false;
 					return;
 				}else if(zmovement.size() != 2){
